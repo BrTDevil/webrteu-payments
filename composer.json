@@ -20,24 +20,24 @@
     ],
     "require": {
         "php": "^8.2",
-        "illuminate/console": "^11.0|^12.0|^13.0",
-        "illuminate/database": "^11.0|^12.0|^13.0",
-        "illuminate/http": "^11.0|^12.0|^13.0",
-        "illuminate/queue": "^11.0|^12.0|^13.0",
-        "illuminate/routing": "^11.0|^12.0|^13.0",
-        "illuminate/support": "^11.0|^12.0|^13.0",
-        "illuminate/view": "^11.0|^12.0|^13.0"
+        "illuminate/console": "^12.0|^13.0",
+        "illuminate/database": "^12.0|^13.0",
+        "illuminate/http": "^12.0|^13.0",
+        "illuminate/queue": "^12.0|^13.0",
+        "illuminate/routing": "^12.0|^13.0",
+        "illuminate/support": "^12.0|^13.0",
+        "illuminate/view": "^12.0|^13.0"
     },
     "require-dev": {
-        "larastan/larastan": "^3.0",
-        "laravel/pint": "^1.18",
-        "orchestra/testbench": "^9.0|^10.0|^11.0",
+        "larastan/larastan": "^3.13",
+        "laravel/pint": "^1.32",
+        "orchestra/testbench": "^10.0|^11.0",
         "peckphp/peck": "^0.3",
-        "pestphp/pest": "^3.0|^4.0",
-        "pestphp/pest-plugin-laravel": "^3.0|^4.0",
-        "pestphp/pest-plugin-type-coverage": "^3.0|^4.0",
+        "pestphp/pest": "^3.8|^4.7",
+        "pestphp/pest-plugin-laravel": "^3.2|^4.1",
+        "pestphp/pest-plugin-type-coverage": "^3.6|^4.0.4",
         "phpstan/phpstan": "^2.3.3,!=2.3.4",
-        "rector/rector": "^2.0"
+        "rector/rector": "^2.8"
     },
     "autoload": {
         "psr-4": {

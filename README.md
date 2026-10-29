@@ -1,7 +1,7 @@
 # webrteu/payments
 
 [![PHP](https://img.shields.io/badge/PHP-%5E8.2-777bb4)](https://www.php.net/)
-[![Laravel](https://img.shields.io/badge/Laravel-11%E2%80%9313-ff2d20)](https://laravel.com/)
+[![Laravel](https://img.shields.io/badge/Laravel-12%E2%80%9313-ff2d20)](https://laravel.com/)
 [![Licență MIT](https://img.shields.io/badge/licen%C8%9B%C4%83-MIT-green)](LICENSE.md)
 [![Packagist](https://img.shields.io/packagist/v/webrteu/payments)](https://packagist.org/packages/webrteu/payments)
 
@@ -15,7 +15,7 @@ Nu este un pachet oficial al vreunui procesator de plăți.
 ## Cerințe
 
 - PHP `^8.2`
-- Laravel 11, 12 sau 13
+- Laravel 12 sau 13
 - o coadă (queue) configurată pentru procesarea webhook-urilor (`sync` merge, dar nu e recomandat în producție)
 - cel puțin un pachet de procesator instalat
 
