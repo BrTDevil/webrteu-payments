@@ -1,0 +1,56 @@
+<?php
+
+declare(strict_types=1);
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up(): void
+    {
+        $payments = Config::string('payments.tables.payments', 'payments');
+        $events = Config::string('payments.tables.payment_events', 'payment_events');
+
+        Schema::create($payments, function (Blueprint $table): void {
+            $table->id();
+            $table->string('gateway', 32);
+            $table->string('order_id');
+            $table->string('provider_payment_id')->nullable()->index();
+            $table->nullableMorphs('payable');
+            $table->integer('amount');
+            $table->string('currency', 3)->default('RON');
+            $table->string('status', 32)->index();
+            $table->integer('refunded_amount')->default(0);
+            $table->json('raw')->nullable();
+            $table->timestamp('paid_at')->nullable();
+            $table->timestamps();
+
+            $table->unique(['gateway', 'order_id']);
+        });
+
+        Schema::create($events, function (Blueprint $table) use ($payments): void {
+            $table->id();
+            $table->string('gateway', 32);
+            $table->string('event_id');
+            $table->foreignId('payment_id')->nullable()->constrained($payments)->nullOnDelete();
+            $table->string('status', 32)->nullable();
+            $table->boolean('signature_valid')->default(false);
+            $table->text('raw_body')->nullable();
+            $table->json('headers')->nullable();
+            $table->timestamp('processed_at')->nullable();
+            $table->text('error')->nullable();
+            $table->timestamps();
+
+            $table->unique(['gateway', 'event_id']);
+        });
+    }
+
+    public function down(): void
+    {
+        Schema::dropIfExists(Config::string('payments.tables.payment_events', 'payment_events'));
+        Schema::dropIfExists(Config::string('payments.tables.payments', 'payments'));
+    }
+};
